@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cinematic Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <script type="module" src="https://unpkg.com/@splinetool/runtime@1.0.9/build/runtime.js"></script>
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="nav-left">
+            <div class="live-dot-container">
+                <div class="live-dot"></div>
+                <div class="live-pulse"></div>
+            </div>
+            ANIRBAN
+        </div>
+        <div class="nav-center">
+            <a href="#overview">Overview</a>
+            <a href="#work">Work</a>
+            <a href="#systems">Systems</a>
+            <a href="#engineering">Engineering</a>
+            <a href="#contact">Contact</a>
+        </div>
+        <div class="nav-right" style="display: flex; align-items: center; gap: 15px;">
+            <button class="sound-toggle-btn muted" id="soundToggle" aria-label="Unmute Background Music">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round" class="icon-volume-on" style="display: none;">
+                    <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+                    <path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+                </svg>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round" class="icon-volume-off">
+                    <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+                    <line x1="23" y1="9" x2="17" y2="15"></line>
+                    <line x1="17" y1="9" x2="23" y2="15"></line>
+                </svg>
+            </button>
+            <button class="cta-button">Work With Me</button>
+
+            <!-- Mobile Hamburger Menu Button -->
+            <button class="hamburger-btn" id="mobileMenuBtn" aria-label="Toggle Navigation">
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Edge-to-Edge Mobile Menu Overlay -->
+    <div class="mobile-menu-overlay" id="mobileMenuOverlay">
+        <button class="menu-close-btn" id="mobileMenuCloseBtn" aria-label="Close Navigation">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <line x1="18" y1="6" x2="6" y2="18"></line>
+                <line x1="6" y1="6" x2="18" y2="18"></line>
+            </svg>
+        </button>
+        <div class="mobile-nav-links">
+            <a href="#overview">Overview</a>
+            <a href="#work">Work</a>
+            <a href="#systems">Systems</a>
+            <a href="#engineering">Engineering</a>
+            <a href="#contact">Contact</a>
+        </div>
+    </div>
+
+    <!-- Loading Overlay -->
+    <div class="loading-overlay" id="loadingOverlay">
+        <div class="loading-content">
+            <div class="loading-percent-wrap">
+                <span id="loadingPercent" class="loading-num">0</span>
+                <span class="loading-symbol">%</span>
+            </div>
+            <div class="loading-bar-wrapper">
+                <div class="loading-bar" id="loadingBar"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="scroll-container">
+
+        <!-- Next-Gen Google Earth HUD Overlay (Immersive Tier) -->
+        <div class="earth-hud-overlay">
+
+            <!-- Global Frame Boundaries -->
+            <div class="hud-crosshair hud-top-left"></div>
+            <div class="hud-crosshair hud-top-right"></div>
+            <div class="hud-crosshair hud-bottom-left"></div>
+            <div class="hud-crosshair hud-bottom-right"></div>
+
+            <!-- Top Horizon Status Bar (Sub-Header) -->
+            <div class="hud-top-horizon">
+                <div class="horizon-block">
+                    <span class="hud-label">UPLINK</span>
+                    <span class="hud-value status-good blink-slow">SECURE_899X</span>
+                </div>
+                <div class="horizon-block">
+                    <span class="hud-label">ORBITAL</span>
+                    <span class="hud-value">GEO-SYNC</span>
+                </div>
+                <div class="horizon-block">
+                    <span class="hud-label">TIME_REF</span>
+                    <span class="hud-value">04:22:15.908 UTC</span>
+                </div>
+                <div class="horizon-block right">
+                    <span class="hud-label">RENDER_NODE</span>
+                    <span class="hud-value">ALPHA_CLUST_07</span>
+                </div>
+            </div>
+
+            <!-- Left Vertical Sensor Scale -->
+            <div class="hud-sensor-vertical left">
+                <div class="sensor-tick major"></div>
+                <div class="sensor-tick"></div>
+                <div class="sensor-tick"></div>
+                <div class="sensor-tick"></div>
+                <div class="sensor-tick major"><span>80</span></div>
+                <div class="sensor-tick"></div>
+                <div class="sensor-tick"></div>
+                <div class="sensor-tick"></div>
+                <div class="sensor-tick major"><span>60</span></div>
+                <div class="sensor-tick"></div>
+                <div class="sensor-tick"></div>
+                <div class="sensor-tick"></div>
+                <div class="sensor-tick major active-tick"><span>40</span></div>
+                <div class="sensor-tick"></div>
+                <div class="sensor-tick"></div>
+                <div class="sensor-tick"></div>
+                <div class="sensor-tick major"><span>20</span></div>
+            </div>
+
+            <!-- Bottom Left Dense Data Feed -->
+            <div class="hud-data-matrix" id="targetLogMatrix">
+                <div class="matrix-header" id="targetLogHeader">
+                    <div class="matrix-title">TARGET ACQUISITION LOG</div>
+                    <button class="matrix-toggle" id="targetLogToggle" aria-label="Minimize log">_</button>
+                </div>
+                <div class="matrix-body" id="targetLogBody">
+                    <div class="matrix-row"><span class="m-lbl">ID:</span><span class="m-val">SYS_CORE_99</span></div>
+                    <div class="matrix-row"><span class="m-lbl">LAT:</span><span class="m-val">34.0522° N</span></div>
+                    <div class="matrix-row"><span class="m-lbl">LNG:</span><span class="m-val">118.2437° W</span></div>
+                    <div class="matrix-row"><span class="m-lbl">ALT:</span><span class="m-val">405.02 KM</span></div>
+                    <div class="matrix-row"><span class="m-lbl">VEL:</span><span class="m-val">7.66 KM/S</span></div>
+                    <div class="matrix-row"><span class="m-lbl">POS:</span><span class="m-val" id="targetLogPos">X:0
+                            Y:0</span></div>
+                    <div class="matrix-row hl"><span class="m-lbl">STATUS:</span><span class="m-val">TRACKING</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bottom Right Live Coordination -->
+            <div class="hud-coordinates">
+                <span class="hud-label">SYS_MEM</span>14.8 GB<br>
+                <span class="hud-label">GPU_LD</span>22.4 %<br>
+                <div class="coord-divisor"></div>
+                <span class="hud-label">OBJ_ID</span>SECTOR_07<br>
+                <span class="hud-label">RES</span>4096x2160
+            </div>
+
+            <!-- Bottom Center Scale Bar -->
+            <div class="hud-scale-bar">
+                <div class="hud-scale-line"></div>
+                <span>1,000KM</span>
+                <span>DATA OPTICAL</span>
+            </div>
+
+            <!-- Center Targeting Reticle -->
+            <div class="hud-center-reticle">
+                <div class="reticle-line v-line"></div>
+                <div class="reticle-line h-line"></div>
+                <div class="reticle-circle"></div>
+                <!-- Precision inner cross -->
+                <div class="reticle-inner-h"></div>
+                <div class="reticle-inner-v"></div>
+            </div>
+        </div>
+
+        <div class="sticky-canvas-wrapper">
+            <canvas id="sequence-canvas"></canvas>
+
+            <div class="overlays-container">
+                <section class="story-beat" data-start="0" data-end="0.30">
+                    <div class="spline-hero-container">
+                        <canvas id="spline" width="455" height="1092"
+                            style="visibility: visible; display: block; width: 100%; height: 100%;"></canvas>
+                    </div>
+                    <div class="hero-content">
+                        <div class="hud-chip">GLOBAL VIEW ACTIVE</div>
+                        <h1><span id="typed-text"></span><span class="typewriter-cursor">|</span></h1>
+                        <p class="subHeadline">I engineeer digital experiences that refuse to be ignored.</p>
+                    </div>
+                </section>
+
+                <section class="story-beat left-aligned" data-start="0.25" data-end="0.45">
+                    <div class="hud-chip">DATA CORRELATION</div>
+                    <h2>Built from systems, not templates.</h2>
+                    <ul>
+                        <li>Every interaction is architected.</li>
+                        <li>Every motion has intent.</li>
+                        <li>Every pixel serves a purpose.</li>
+                    </ul>
+                </section>
+
+                <section class="story-beat right-aligned" data-start="0.50" data-end="0.70">
+                    <div class="hud-chip">SYSTEM ARCHITECTURE</div>
+                    <h2>Engineering meets emotion.</h2>
+                    <ul>
+                        <li>Scroll-driven storytelling.</li>
+                        <li>Performance-optimized architecture.</li>
+                        <li>Hardware-accelerated animation.</li>
+                        <li>Design systems at scale.</li>
+                    </ul>
+                </section>
+
+                <section class="story-beat center-aligned" data-start="0.75" data-end="0.95">
+                    <div class="hud-chip">SURFACE SCAN</div>
+                    <h2>Detail is the difference.</h2>
+                    <ul>
+                        <li>Micro-interactions that feel physical.</li>
+                        <li>Typography that breathes.</li>
+                        <li>Motion that feels inevitable.</li>
+                        <li>Interfaces that disappear.</li>
+                    </ul>
+                </section>
+
+                <section class="story-beat center-aligned" data-start="0.90" data-end="1.20">
+                    <div class="hud-chip">ASSET REPOSITORY</div>
+                    <h2>Gallery</h2>
+                    <p class="subHeadline">A glimpse into the aesthetic.</p>
+                    <div class="gallery-3d-slider" id="gallerySlider">
+                        <div class="slider-card" data-index="0">
+                            <div class="card-glow"></div>
+                            <img src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=600&q=80"
+                                alt="Gallery 1">
+                        </div>
+                        <div class="slider-card" data-index="1">
+                            <div class="card-glow"></div>
+                            <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=600&q=80"
+                                alt="Gallery 2">
+                        </div>
+                        <div class="slider-card" data-index="2">
+                            <div class="card-glow"></div>
+                            <img src="https://images.unsplash.com/photo-1541701494587-cb58502866ab?auto=format&fit=crop&w=600&q=80"
+                                alt="Gallery 3">
+                        </div>
+                        <div class="slider-card" data-index="3">
+                            <div class="card-glow"></div>
+                            <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=600&q=80"
+                                alt="Gallery 4">
+                        </div>
+                        <div class="slider-card" data-index="4">
+                            <div class="card-glow"></div>
+                            <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=600&q=80"
+                                alt="Gallery 5">
+                        </div>
+                        <div class="slider-card" data-index="5">
+                            <div class="card-glow"></div>
+                            <img src="https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=600&q=80"
+                                alt="Gallery 6">
+                        </div>
+                        <div class="slider-card" data-index="6">
+                            <div class="card-glow"></div>
+                            <img src="https://images.unsplash.com/photo-1531297172867-124b89cce080?auto=format&fit=crop&w=600&q=80"
+                                alt="Gallery 7">
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+
+
+
+    <!-- Scroll Controls -->
+    <div class="scroll-controls">
+        <button class="scroll-btn scroll-up" aria-label="Scroll Up">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="18 15 12 9 6 15"></polyline>
+            </svg>
+        </button>
+        <button class="scroll-btn scroll-down" aria-label="Scroll Down">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="6 9 12 15 18 9"></polyline>
+            </svg>
+        </button>
+    </div>
+
+    <!-- Telemetry Terminal -->
+    <div class="telemetry-terminal" id="telemetryTerminal">
+        <div class="terminal-header" id="terminalHeader">
+            <div class="terminal-title">
+                <div class="dot red"></div>
+                <div class="dot yellow"></div>
+                <div class="dot green"></div>
+                <span>SYSTEM.TELEMETRY</span>
+            </div>
+            <button class="terminal-toggle" aria-label="Minimize terminal">_</button>
+        </div>
+        <div class="terminal-body">
+            <div class="telemetry-row">
+                <span class="label">POS_X_Y</span>
+                <span class="value hardware-accel" id="debug-pos">X:0 Y:0</span>
+            </div>
+            <div class="telemetry-row">
+                <span class="label">FRAME_ID</span>
+                <span class="value hardware-accel" id="debug-frame">000</span>
+            </div>
+            <div class="telemetry-row">
+                <span class="label">TARGET_DELTA</span>
+                <span class="value" id="debug-target">0.000</span>
+            </div>
+            <div class="telemetry-row">
+                <span class="label">ENGINE_STATE</span>
+                <span class="value status-good" id="debug-status">SYNCED</span>
+            </div>
+            <div class="telemetry-row">
+                <span class="label">SCROLL_VELOCITY</span>
+                <span class="value" id="debug-velocity">0.00</span>
+            </div>
+            <div class="telemetry-row">
+                <span class="label">CACHE_BUFFER</span>
+                <span class="value hardware-accel" id="debug-buffer">0/0</span>
+            </div>
+            <div class="telemetry-row">
+                <span class="label">RENDER_FPS</span>
+                <span class="value status-good" id="debug-fps">60</span>
+            </div>
+            <div class="terminal-graph">
+                <div class="graph-bar" id="debug-bar"></div>
+            </div>
+        </div>
+    </div>
+
+    <script type="module" src="script.js"></script>
+</body>
+
+</html>
